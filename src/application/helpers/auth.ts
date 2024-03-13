@@ -8,39 +8,48 @@ import {
 
 const auth = getAuth(app);
 
-export const register = (
+export const registerUser = async (
   email: string,
   password: string
-) => {
-    createUserWithEmailAndPassword(auth, email, password)
-      .then((userCredential: any) => {
-        const user = userCredential.user;
-        console.log("Usuario registrado:", user);
-      })
-      .catch((error: any) => {
-        console.error("Error al registrar usuario:", error);
-      });
+): Promise<void> => {
+  try {
+    const userCredential = await createUserWithEmailAndPassword(
+      auth,
+      email,
+      password
+    );
+    const user = userCredential.user;
+    console.log("Usuario registrado:", user);
+  } catch (error: any) {
+    console.error("Error al registrar usuario:", error.message);
+    throw error;
+  }
 };
 
-export const signIn = (email: string, password: string) => {
-  signInWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-      // Signed in
-      const user = userCredential.user;
-      // ...
-    })
-    .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-    });
+export const signInUser = async (
+  email: string,
+  password: string
+): Promise<void> => {
+  try {
+    const userCredential = await signInWithEmailAndPassword(
+      auth,
+      email,
+      password
+    );
+    const user = userCredential.user;
+    console.log("Usuario autenticado:", user);
+  } catch (error: any) {
+    console.error("Error al iniciar sesión:", error.message);
+    throw error;
+  }
 };
 
-export const logOut = () => {
-  signOut(auth)
-    .then(() => {
-      // Sign-out successful.
-    })
-    .catch((error) => {
-      // An error happened.
-    });
+export const signOutUser = async (): Promise<void> => {
+  try {
+    await signOut(auth);
+    console.log("Sesión cerrada");
+  } catch (error: any) {
+    console.error("Error al cerrar sesión:", error.message);
+    throw error;
+  }
 };

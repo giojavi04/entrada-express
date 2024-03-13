@@ -1,5 +1,4 @@
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
 import 'firebase/auth';
 import 'firebase/database';
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -17,5 +16,3 @@ const firebaseConfig = {
 };
 
 export const app = initializeApp(firebaseConfig);
-// Initialize Firebase
-export const analytics = getAnalytics(app);

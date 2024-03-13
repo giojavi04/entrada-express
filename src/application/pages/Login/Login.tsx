@@ -1,6 +1,6 @@
 'use client'
 
-import { signIn } from "@/application/helpers/auth";
+import { signInUser } from "@/application/helpers/auth";
 import Link from "next/link";
 import { SubmitHandler, useForm } from "react-hook-form";
 
@@ -8,7 +8,6 @@ type Inputs = {
   email: string
   password: string
 }
-
 
 const Login = () => {
   const {
@@ -18,7 +17,7 @@ const Login = () => {
   } = useForm<Inputs>()
 
   const onSubmit: SubmitHandler<Inputs> = (data) => {
-    signIn(data.email, data.password)
+    signInUser(data.email, data.password)
   }
 
   return (
@@ -32,7 +31,7 @@ const Login = () => {
             <button onClick={() => signIn(email, password)}>Cerrar Sesión</button>
             <button onClick={logOut}>Registrarse</button>
           </div> */}
-          <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
+          <label htmlFor="email" className="block text-sm font-medium leading-6 text-dianne-900">
             Email
           </label>
           <div className="mt-2">
@@ -40,7 +39,7 @@ const Login = () => {
               id="email"
               type="email"
               autoComplete="email"
-              className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+              className="block w-full rounded-md border-0 py-1.5 text-dianne-900 shadow-sm ring-1 ring-inset ring-dianne-300 placeholder:text-dianne-400 focus:ring-2 focus:ring-inset focus:ring-dianne-600 sm:text-sm sm:leading-6"
               required
               {...register("email")}
               />
@@ -48,7 +47,7 @@ const Login = () => {
         </div>
 
         <div>
-          <label htmlFor="password" className="block text-sm font-medium leading-6 text-gray-900">
+          <label htmlFor="password" className="block text-sm font-medium leading-6 text-dianne-900">
             Contraseña
           </label>
           <div className="mt-2">
@@ -56,7 +55,7 @@ const Login = () => {
               id="password"
               type="password"
               autoComplete="current-password"
-              className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+              className="block w-full rounded-md border-0 py-1.5 text-dianne-900 shadow-sm ring-1 ring-inset ring-dianne-300 placeholder:text-dianne-400 focus:ring-2 focus:ring-inset focus:ring-dianne-600 sm:text-sm sm:leading-6"
               required
               {...register("password")}
             />
@@ -69,16 +68,16 @@ const Login = () => {
               id="remember-me"
               name="remember-me"
               type="checkbox"
-              className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
+              className="h-4 w-4 rounded border-dianne-300 text-dianne-600 focus:ring-dianne-600"
             />
-            <label htmlFor="remember-me" className="ml-3 block text-sm leading-6 text-gray-900">
+            <label htmlFor="remember-me" className="ml-3 block text-sm leading-6 text-dianne-900">
               Recordarme
             </label>
           </div>
 
           <div className="text-sm leading-6">
             <Link href="/"
-              className="font-semibold text-indigo-600 hover:text-indigo-500">
+              className="font-semibold text-dianne-600 hover:text-dianne-500">
               Forgot password?
             </Link>
           </div>
@@ -87,7 +86,7 @@ const Login = () => {
         <div>
           <button
             type="submit"
-            className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+            className="flex w-full justify-center rounded-md bg-dianne-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-dianne-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-dianne-600"
           >
             Ingresar
           </button>
