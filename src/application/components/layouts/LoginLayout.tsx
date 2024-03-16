@@ -1,4 +1,6 @@
+import Link from "next/link";
 import Logo from "./Logo";
+import LogoJM from "./LogoJM";
 
 const LoginLayoutComponent = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -7,19 +9,16 @@ const LoginLayoutComponent = ({ children }: { children: React.ReactNode }) => {
         <div className="flex justify-center">
           <Logo className="h-32 w-auto" />
         </div>
-        <h2 className="mt-6 text-center text-2xl font-bold leading-9 tracking-tight">
-          Iniciar sesión
-        </h2>
       </div>
 
       <div className="mt-10 mx-auto w-full max-w-[480px]">
         {children}
 
-        <p className="mt-10 text-center text-sm">
-          Desarrollado por{' '}
-          <a href="https://javiermontalvo.dev" target="_blank" rel="noreferrer noopener" className="font-semibold hover:text-gray-900">
-            Javier Montalvo
-          </a>
+        <p className="mt-10 text-center text-sm flex flex-col md:flex-row justify-center items-center">
+          Desarrollado por:
+          <Link href="https://javiermontalvo.dev" target="_blank" rel="noreferrer noopener">
+            <LogoJM className="h-auto w-48 ml-2" />
+          </Link>
         </p>
       </div>
     </div>

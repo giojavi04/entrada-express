@@ -1,8 +1,8 @@
 'use client'
 
 import { signInUser } from "@/application/helpers/auth";
-import Link from "next/link";
 import { SubmitHandler, useForm } from "react-hook-form";
+import { toast } from "sonner";
 
 type Inputs = {
   email: string
@@ -13,24 +13,24 @@ const Login = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
   } = useForm<Inputs>()
 
-  const onSubmit: SubmitHandler<Inputs> = (data) => {
-    signInUser(data.email, data.password)
+  const onSubmit: SubmitHandler<Inputs> = async (data) => {
+    try {
+      await signInUser(data.email, data.password)
+      // redirect
+    } catch (error) {
+      toast.error('Hubo un error, inténta nuevamente o comunicate con la MAG.')
+    }
   }
 
   return (
     <div className="bg-white px-6 py-12 shadow sm:rounded-lg sm:px-12">
+      <h2 className="mb-6 text-center text-2xl font-bold leading-9 tracking-tight">
+        Inicia sesión
+      </h2>
       <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
         <div>
-          {/* <div>
-            <input type="email" placeholder="Correo electrónico" value={email} onChange={(e) => setEmail(e.target.value)} />
-            <input type="password" placeholder="Contraseña" value={password} onChange={(e) => setPassword(e.target.value)} />
-            <button onClick={() => register(email, password)}>Iniciar Sesión</button>
-            <button onClick={() => signIn(email, password)}>Cerrar Sesión</button>
-            <button onClick={logOut}>Registrarse</button>
-          </div> */}
           <label htmlFor="email" className="block text-sm font-medium leading-6 text-dianne-900">
             Email
           </label>
@@ -62,7 +62,7 @@ const Login = () => {
           </div>
         </div>
 
-        <div className="flex items-center justify-between">
+        {/* <div className="flex items-center justify-between">
           <div className="flex items-center">
             <input
               id="remember-me"
@@ -81,7 +81,7 @@ const Login = () => {
               Forgot password?
             </Link>
           </div>
-        </div>
+        </div> */}
 
         <div>
           <button
