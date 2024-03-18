@@ -1,6 +1,7 @@
-import Link from "next/link";
-import Logo from "./Logo";
-import LogoJM from "./LogoJM";
+import Link from 'next/link';
+
+import Logo from './Logo';
+import LogoJM from './LogoJM';
 
 const LoginLayoutComponent = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -22,7 +23,7 @@ const LoginLayoutComponent = ({ children }: { children: React.ReactNode }) => {
         </p>
       </div>
     </div>
-  )
+  );
 };
 
 export const LoginLayout = LoginLayoutComponent;

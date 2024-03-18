@@ -1,15 +1,9 @@
-import * as React from "react"
+import * as React from 'react';
+
 const Logo = (props: any) => (
-  <svg
-    id="Layer_1"
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 461.28 516.96"
-    {...props}
-  >
+  <svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 461.28 516.96" {...props}>
     <defs>
-      <style>
-        {".cls-1,.cls-2{fill:#a2dcda;stroke-width:0}.cls-2{fill:#19424e}"}
-      </style>
+      <style>{'.cls-1,.cls-2{fill:#a2dcda;stroke-width:0}.cls-2{fill:#19424e}'}</style>
     </defs>
     <path
       className="cls-2"
@@ -25,5 +19,5 @@ const Logo = (props: any) => (
     />
     <circle className="cls-1" cx={247.64} cy={307.59} r={30.49} />
   </svg>
-)
-export default Logo
+);
+export default Logo;

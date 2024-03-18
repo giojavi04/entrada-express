@@ -1,0 +1,13 @@
+__tests__/
+.next/
+.vercel/
+.vscode/
+.coverage/
+node_modules/
+
+**.test.tsx
+jest.back.config.ts
+jest.config.js
+jest.setup.js
+postcss.config.js
+tailwind.config.ts

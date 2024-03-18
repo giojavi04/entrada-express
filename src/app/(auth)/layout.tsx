@@ -1,17 +1,19 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "../globals.css";
-import LoginLayout from "@/application/components/layouts/LoginLayout";
+import type { Metadata } from 'next';
+import { Inter } from 'next/font/google';
 
-const inter = Inter({ subsets: ["latin"] });
+import LoginLayout from '@/application/components/layouts/LoginLayout';
+
+import '../globals.css';
+
+const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: "Entrada Express",
-  description: "Aplicación para gestionar la entrega de entradas",
+  title: 'Entrada Express',
+  description: 'Aplicación para gestionar la entrega de entradas'
 };
 
 export default function AuthLayout({
-  children,
+  children
 }: Readonly<{
   children: React.ReactNode;
 }>) {
