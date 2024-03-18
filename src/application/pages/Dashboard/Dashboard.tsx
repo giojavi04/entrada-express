@@ -6,7 +6,7 @@ const Dashboard = () => {
   const { setTitle } = useAppProvider();
   setTitle('Dashboard');
 
-  return <div>Dashboard</div>;
+  return <div>Mis entradas</div>;
 };
 
 export const DashboardPage = Dashboard;
