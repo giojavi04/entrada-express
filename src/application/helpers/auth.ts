@@ -32,6 +32,7 @@ export const registerUser = async (name: string, dni: string, email: string, pas
       name,
       dni,
       email: user.email,
+      tickets: 0,
       role: roleRef
     });
   } catch (error: any) {
