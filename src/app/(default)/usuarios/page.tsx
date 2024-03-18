@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 
-import UsersPage from '@/application/pages/Users';
+import UsersContainer from '@/application/pages/Users';
 
 export const metadata: Metadata = {
   title: 'Usuarios - Entrada Express',
@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 };
 
 const Usuarios = () => {
-  return <UsersPage />;
+  return <UsersContainer />;
 };
 
 export default Usuarios;

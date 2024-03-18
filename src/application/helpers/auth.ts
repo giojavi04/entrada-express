@@ -1,10 +1,23 @@
 import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword, signOut } from 'firebase/auth';
-import { doc, getDoc, getFirestore, setDoc } from 'firebase/firestore';
+import { collection, doc, getDoc, getDocs, getFirestore, setDoc } from 'firebase/firestore';
 
 import { app } from '@/application/config/firebase';
 
 const auth = getAuth(app);
 const db = getFirestore(app);
+
+export const getUsers = async () => {
+  let users = [];
+  try {
+    const querySnapshot = await getDocs(collection(db, 'users'));
+    users = querySnapshot.docs.map((doc) => doc.data());
+
+    return users;
+  } catch (error) {
+    console.error('Error al obtener usuarios:', error);
+    throw error;
+  }
+};
 
 export const registerUser = async (name: string, dni: string, email: string, password: string) => {
   try {
